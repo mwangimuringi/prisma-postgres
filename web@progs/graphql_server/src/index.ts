@@ -27,11 +27,7 @@ type Author {
   verified: Boolean!
 }
 
-type Game {
-  id: ID!
-  name: String!
-  verified: Boolean!
-}
+
 
 
 # The "Query" type is special: it lists all of the available queries that
@@ -41,7 +37,6 @@ type Query {
   books: [Book]
   reviews: [Review]
   authors: [Author]
-  games: [Game]
 }
 `;
 
@@ -67,13 +62,6 @@ let reviews = [
     {id: '5', rating:   7, content: 'lorem ipsum', author_id: '1',book_id:'2'},
 ];
 
-let games = [
-  {id: '1', rating: 9, content: 'lorem ipsum', author_id: '1', book_id: '2'},
-  {id: '2', rating: 10,  content: 'lorem ipsum', author_id: '2',book_id: '1'},
-  {id: '3', rating: 7,  content: 'lorem ipsum', author_id: '3',book_id: '3'},
-  {id: '4', rating: 6, content: 'lorem ipsum', author_id: '4',book_id: '4'},
-  {id: '5', rating:   7, content: 'lorem ipsum', author_id: '1',book_id:'2'},
-];
 
 // Resolvers define how to fetch the types defined in your schema.
 // This resolver retrieves books from the "books" array above.
@@ -82,7 +70,7 @@ const resolvers = {
       books: () => books,
       authors: () => authors,
       reviews: () => reviews,
-      games: () => games,
+
     },
   };
 
